@@ -1,9 +1,13 @@
 import React from 'react';
+import './store.js';
+import Card from './composition/Card.js';
+import List from './composition/List.js';
 
 function App() {
   return (
     <main className='App'>
-      {/* content goes here */}
+      <Card />
+      <List />
     </main>
   );
 }
