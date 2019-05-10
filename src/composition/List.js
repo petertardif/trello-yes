@@ -1,26 +1,24 @@
 import React from 'react';
 import './List.css';
 import Card from './Card.js'
-import STORE from '../store';
 
-class List extends React.Component {
-  render() {
-    const arrayOfList = STORE.lists.map((item) =>
-      <div key={item.id}>
-        <header className="List-header">
-          <h2>{item.header}</h2>
-        </header>
-        <div className="List-cards">
-          <Card />
-        </div>
+function List(props) {
+  return (
+    <section className="List">
+      <header className="List-header">
+        <h2>{props.header}</h2>
+      </header>
+      <div className="List-cards">
+        {props.cards.map((card) => 
+          <Card 
+          key = {card.id}
+          title={card.title}
+          content={card.content}
+          />
+        )} 
       </div>
-    )
-    return (
-      <section className="List">
-        {arrayOfList}
-      </section>
-    );
-  }
+    </section>
+  );
 }
-
+      
 export default List; 
